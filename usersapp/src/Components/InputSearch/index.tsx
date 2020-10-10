@@ -9,7 +9,6 @@ type InputSearchProps = {
 export default class InputSearch extends Component<InputSearchProps, {}> {
   constructor(props: InputSearchProps) {
     super(props);
-
     this.handleSearch = this.handleSearch.bind(this);
   }
 

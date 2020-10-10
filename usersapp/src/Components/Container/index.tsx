@@ -1,9 +1,11 @@
-import React from 'react';
+import styled, { css } from 'styled-components';
 
-import * as s from './styles';
-
-const Container: React.FC = () => {
-  return <div />;
-};
-
-export default Container;
+export const Container = styled.div`
+  ${({ theme }) => css`
+    max-width: ${theme.grid.container};
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(${theme.grid.gutter} / 2);
+    padding-right: calc(${theme.grid.gutter} / 2);
+  `}
+`;

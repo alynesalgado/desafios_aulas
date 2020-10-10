@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+
 import APIService from '../../Services/APIService';
 import AxiosHandler from '../../Services/AxiosHandler';
+
 import IUsers from '../../Interfaces/IUsers';
 import User from '../../Repository/User';
+
 import InputSearch from '../../Components/InputSearch';
 import UserCard from '../../Components/UserCard';
+import { Container } from '../../Components/Container';
+
 import * as s from './styles';
 
 const apiService: APIService = new APIService(new AxiosHandler());
@@ -21,7 +26,6 @@ export default class Home extends Component<{}, HomeState> {
       users: [],
       searchValue: ''
     };
-
     this.setSearchValue = this.setSearchValue.bind(this);
   }
 
@@ -42,19 +46,21 @@ export default class Home extends Component<{}, HomeState> {
 
     return (
       <s.Container>
-        <s.PageTitle>Search User List</s.PageTitle>
-        <InputSearch onChange={this.setSearchValue} />
-        <s.UsersList>
-          {users
-            .filter((user: User) => {
-              return user.name
-                .toLowerCase()
-                .includes(this.state.searchValue.toLowerCase());
-            })
-            .map((user: User) => (
-              <UserCard key={user.id} {...user} />
-            ))}
-        </s.UsersList>
+        <Container>
+          <s.PageTitle>Search User List</s.PageTitle>
+          <InputSearch onChange={this.setSearchValue} />
+          <s.UsersList>
+            {users
+              .filter((user: User) => {
+                return user.name
+                  .toLowerCase()
+                  .includes(this.state.searchValue.toLowerCase());
+              })
+              .map((user: User) => (
+                <UserCard key={user.id} {...user} />
+              ))}
+          </s.UsersList>
+        </Container>
       </s.Container>
     );
   }
