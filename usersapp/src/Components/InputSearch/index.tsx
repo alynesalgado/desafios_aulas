@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import * as s from './styles';
+
 type InputSearchProps = {
   onChange(searchValue: string): void;
 };
@@ -16,6 +18,10 @@ export default class InputSearch extends Component<InputSearchProps, {}> {
   }
 
   render() {
-    return <input type="text" placeholder="Digite para buscar" onChange={this.handleSearch} />;
+    return (
+      <s.Container>
+        <s.InputWrapper type="text" placeholder="Digite para buscar" onChange={this.handleSearch} />
+      </s.Container>
+    );
   }
 }

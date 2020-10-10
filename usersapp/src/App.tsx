@@ -1,35 +1,19 @@
 import React from 'react';
+import {ThemeProvider} from 'styled-components';
+import theme from './styles/theme';
+import GlobalStyles from './styles/global';
+
 import HomePage from './Pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <ThemeProvider theme={theme}>
+        <HomePage />
+        <GlobalStyles />
+      </ThemeProvider>
     </div>
   );
 }
 
 export default App;
-
-
-// Quando um componente é criado 1x
-// ----------------------------------
-
-// constructor()
-// static getDerivedStateFromProps()
-// UNSAFE_componentWillMount() (Depreciado)
-// render()
-// componentDidMount()
-
-// Toda vez que um componente é atualizado
-// ----------------------------------------
-
-// UNSAFE_componentWillUpdate() (Depreciado)
-// static getDerivedStateFromProps()
-// shouldComponentUpdate()
-// render()
-// getSnapshotBeforeUpdate()
-// componentDidUpdate()
-
-// Quando um componente é removido do DOM
-// componentWillUnmount()

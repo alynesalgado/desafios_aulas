@@ -4,6 +4,8 @@ import AxiosHandler from '../../Services/AxiosHandler';
 import IUsers from '../../Interfaces/IUsers';
 import User from '../../Repository/User';
 import InputSearch from '../../Components/InputSearch';
+import UserCard from '../../Components/UserCard';
+import * as s from './styles';
 
 const apiService: APIService = new APIService(new AxiosHandler());
 
@@ -37,21 +39,22 @@ export default class Home extends Component<{}, HomeState> {
 
   render() {
     const { users } = this.state;
+    
 
     return (
-      <div>
-        <h1>Hello world</h1>
+      <s.Container>
+        <s.PageTitle>Search User List</s.PageTitle>
         <InputSearch onChange={this.setSearchValue} />
-        <ul>
+        <s.UsersList>
           {users
             .filter((user: User) => {
               return user.name.toLowerCase().includes(this.state.searchValue.toLowerCase());
             })
             .map((user: User) => (
-              <li key={user.id}>{user.name}</li>
+              <UserCard key={user.id} {...user} />
             ))}
-        </ul>
-      </div>
+        </s.UsersList>
+      </s.Container>
     );
   }
 }
