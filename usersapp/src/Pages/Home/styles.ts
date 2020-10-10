@@ -8,7 +8,7 @@ export const Container = styled.main`
 export const PageTitle = styled.h1`
   padding: 2rem 20rem;
   text-align: center;
-`
+`;
 
 export const UsersList = styled.ul`
   padding-top: 4rem;
@@ -16,4 +16,4 @@ export const UsersList = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(40rem, auto));
   grid-template-rows: auto;
   grid-gap: 10px;
-`
+`;

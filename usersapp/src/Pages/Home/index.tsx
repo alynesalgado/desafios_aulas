@@ -19,7 +19,7 @@ export default class Home extends Component<{}, HomeState> {
     super(props);
     this.state = {
       users: [],
-      searchValue: '',
+      searchValue: ''
     };
 
     this.setSearchValue = this.setSearchValue.bind(this);
@@ -33,13 +33,12 @@ export default class Home extends Component<{}, HomeState> {
 
   setSearchValue(searchValue: string) {
     this.setState({
-      searchValue,
+      searchValue
     });
   }
 
   render() {
     const { users } = this.state;
-    
 
     return (
       <s.Container>
@@ -48,7 +47,9 @@ export default class Home extends Component<{}, HomeState> {
         <s.UsersList>
           {users
             .filter((user: User) => {
-              return user.name.toLowerCase().includes(this.state.searchValue.toLowerCase());
+              return user.name
+                .toLowerCase()
+                .includes(this.state.searchValue.toLowerCase());
             })
             .map((user: User) => (
               <UserCard key={user.id} {...user} />
