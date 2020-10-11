@@ -9,7 +9,6 @@ type InputSearchProps = {
 export default class InputSearch extends Component<InputSearchProps, {}> {
   constructor(props: InputSearchProps) {
     super(props);
-
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -20,7 +19,11 @@ export default class InputSearch extends Component<InputSearchProps, {}> {
   render() {
     return (
       <s.Container>
-        <s.InputWrapper type="text" placeholder="Digite para buscar" onChange={this.handleSearch} />
+        <s.InputWrapper
+          type="text"
+          placeholder="Digite para buscar"
+          onChange={this.handleSearch}
+        />
       </s.Container>
     );
   }

@@ -1,5 +1,5 @@
-import IUsers from "./IUsers";
+import IUsers from './IUsers';
 
 export default interface IAPIHandler {
-    getUsers(): Promise<IUsers>;
+  getUsers(): Promise<IUsers>;
 }

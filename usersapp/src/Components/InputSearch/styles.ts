@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -6,8 +6,12 @@ export const Container = styled.div`
 `;
 
 export const InputWrapper = styled.input`
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid;
-  border-radius: 2px;
+  ${({ theme }) => css`
+    border-radius: ${theme.border.radius};
+    border: 2px solid ${theme.colors.black};
+    font-size: ${theme.font.sizes.large};
+    font-weight: ${theme.font.light};
+    padding: ${theme.spacings.xsmall};
+    width: 100%;
+  `}
 `;

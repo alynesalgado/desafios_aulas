@@ -1,5 +1,5 @@
-import User from "../Repository/User";
+import User from '../Repository/User';
 
 export default interface Users {
-    data: User[];
+  data: User[];
 }

@@ -1,19 +1,32 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
-export const Container = styled.main`
-  padding: 0 10rem;
-  margin: 0;
-`;
+export const Container = styled.main``;
 
 export const PageTitle = styled.h1`
-  padding: 2rem 20rem;
-  text-align: center;
-`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.small};
+    text-align: center;
+    text-transform: uppercase;
+  `}
+`;
 
 export const UsersList = styled.ul`
-  padding-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(40rem, auto));
-  grid-template-rows: auto;
-  grid-gap: 10px;
-`
+  ${({ theme }) => css`
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: auto;
+    padding-top: ${theme.spacings.small};
+
+    ${media.greaterThan('medium')`
+      grid-template-columns: repeat(auto-fit, minmax(40rem, auto));
+    `}
+  `}
+`;
+
+export const EmptyListContentMessage = styled.span`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.large};
+    text-transform: uppercase;
+  `}
+`;

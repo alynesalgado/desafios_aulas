@@ -1,41 +1,51 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  ${({theme}) => css`
-    border: 1px solid gray;
-    border-radius: 4px;
-    box-shadow: 2px 2px 2px #cccccc;
+  ${({ theme }) => css`
+    border-radius: ${theme.border.radius};
+    border: 1px solid ${theme.colors.gray};
+    box-shadow: 2px 2px 4px ${theme.colors.gray};
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    padding: 2rem;
-
-    strong {
-      padding-left: 1rem;
-    }
+    padding: ${theme.spacings.small};
   `}
 `;
 
 export const Title = styled.span`
-  ${({theme}) => css`
-    font-family: ${theme.font.family};
-    font-size: ${theme.font.sizes.large};
-    padding-bottom: 8px;
+  ${({ theme }) => css`
     display: flex;
     align-items: center;
+    font-family: ${theme.font.family};
+    font-size: ${theme.font.sizes.large};
+    padding-bottom: ${theme.spacings.xxsmall};
+  `}
+`;
+
+export const Name = styled.strong`
+  ${({ theme }) => css`
+    padding-left: ${theme.spacings.xxsmall};
   `}
 `;
 
 export const UserIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-`
+  ${({ theme }) => css`
+    height: 2rem;
+    width: 2rem;
+    margin-right: ${theme.spacings.xxsmall};
+  `}
+`;
 
 export const Email = styled.span`
-  width: 100%;
+  ${({ theme }) => css`
+    width: 100%;
+    font-size: ${theme.font.sizes.large};
+  `}
 `;
 
 export const Address = styled.span`
-  color: gray;
+  ${({ theme }) => css`
+    color: ${theme.colors.gray};
+    font-size: ${theme.font.sizes.small};
+  `}
 `;
